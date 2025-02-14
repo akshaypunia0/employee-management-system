@@ -1,85 +1,38 @@
 import React from 'react'
+import CompleteTask from './CompleteTask'
+import NewTask from './NewTask'
+import AcceptTask from './AcceptTask'
+import FailedTask from './FailedTask'
 
-const TaskList = () => {
+const TaskList = ({data}) => {
+
+    // console.log(data);
 
 
-
-
+    
   return (
     <div id='taskList' className='flex items-center overflow-x-auto justify-start gap-10 h-[50%] w-full py-5 px-1 my-28 flex-nowrap'>
-        <div className='flex-shrink-0 h-full w-[350px] p-5 bg-blue-600 rounded-xl '>
-            <div className='flex justify-between item-center'>
-                <h3 className='bg-red-600 px-3 py-1 rounded text-sm'>High</h3>
-                <h4 className='text-sm'>20 Feb 2024</h4>
-            </div>
-            <h2 className='mt-5 text-2xl font-semibold'>
-                Make a youtube video
-            </h2>
-            <p className='text-sm mt-2'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint blanditiis ab, accusantium ad accusamus delectus?
-            </p>
-        </div>
-        <div className='flex-shrink-0 h-full w-[350px] p-5 bg-blue-600 rounded-xl '>
-            <div className='flex justify-between item-center'>
-                <h3 className='bg-red-600 px-3 py-1 rounded text-sm'>High</h3>
-                <h4 className='text-sm'>20 Feb 2024</h4>
-            </div>
-            <h2 className='mt-5 text-2xl font-semibold'>
-                Make a youtube video
-            </h2>
-            <p className='text-sm mt-2'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint blanditiis ab, accusantium ad accusamus delectus?
-            </p>
-        </div>
-        <div className='flex-shrink-0 h-full w-[350px] p-5 bg-blue-600 rounded-xl '>
-            <div className='flex justify-between item-center'>
-                <h3 className='bg-red-600 px-3 py-1 rounded text-sm'>High</h3>
-                <h4 className='text-sm'>20 Feb 2024</h4>
-            </div>
-            <h2 className='mt-5 text-2xl font-semibold'>
-                Make a youtube video
-            </h2>
-            <p className='text-sm mt-2'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint blanditiis ab, accusantium ad accusamus delectus?
-            </p>
-        </div>
-        <div className='flex-shrink-0 h-full w-[350px] p-5 bg-blue-600 rounded-xl '>
-            <div className='flex justify-between item-center'>
-                <h3 className='bg-red-600 px-3 py-1 rounded text-sm'>High</h3>
-                <h4 className='text-sm'>20 Feb 2024</h4>
-            </div>
-            <h2 className='mt-5 text-2xl font-semibold'>
-                Make a youtube video
-            </h2>
-            <p className='text-sm mt-2'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint blanditiis ab, accusantium ad accusamus delectus?
-            </p>
-        </div>
-        <div className='flex-shrink-0 h-full w-[350px] p-5 bg-blue-600 rounded-xl '>
-            <div className='flex justify-between item-center'>
-                <h3 className='bg-red-600 px-3 py-1 rounded text-sm'>High</h3>
-                <h4 className='text-sm'>20 Feb 2024</h4>
-            </div>
-            <h2 className='mt-5 text-2xl font-semibold'>
-                Make a youtube video
-            </h2>
-            <p className='text-sm mt-2'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint blanditiis ab, accusantium ad accusamus delectus?
-            </p>
-        </div>
-        <div className='flex-shrink-0 h-full w-[350px] p-5 bg-blue-600 rounded-xl '>
-            <div className='flex justify-between item-center'>
-                <h3 className='bg-red-600 px-3 py-1 rounded text-sm'>High</h3>
-                <h4 className='text-sm'>20 Feb 2024</h4>
-            </div>
-            <h2 className='mt-5 text-2xl font-semibold'>
-                Make a youtube video
-            </h2>
-            <p className='text-sm mt-2'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint blanditiis ab, accusantium ad accusamus delectus?
-            </p>
-        </div>
-        
+    
+
+    {
+        data.tasks.map((ele, id) => {
+            if (ele.newTask) {
+                return <NewTask key={id} data={ele}/>
+            }
+
+            if (ele.active) {
+                return <AcceptTask key={id} data={ele}/>
+            }
+
+            if(ele.completed) {
+                return <CompleteTask key={id} data={ele}/>
+            }
+
+            if(ele.failed) {
+                return <FailedTask key={id} data={ele}/>
+            }
+        })
+    }
         
     </div>
   )

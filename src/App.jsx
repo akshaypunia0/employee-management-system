@@ -9,44 +9,59 @@ import { AuthContext } from './Context/AuthProvider'
 function App() {
 
   const [user, setUser] = useState(null)
+  const [loggedInUserData, SetLoggedInUserData] = useState(null)
 
   const authData = useContext(AuthContext)
 
   console.log(authData);
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   if (authData) {
-  //     const loggedInUser = localStorage.getItem('loggedInUser')
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
 
-  //     console.log(loggedInUser);
+      // console.log('loggedInUser',loggedInUser.role);
 
-  //     if(loggedInUser) {
-  //       console.log(loggedInUser.role);
-        
-  //       setUser(loggedInUser.role)
-  //     }
-  //   }
+      if(loggedInUser) {
 
-  // }, [authData])
+        // console.log('inside useEffect if');
 
-  console.log(user);
-  
+        // console.log('loggedInUser',loggedInUser.role);
+        setUser(loggedInUser.role)
+        SetLoggedInUserData(loggedInUser.data)
+      }
+
+  },[])
+
+  // console.log(user);
+
 
 
 
   const handleLogin = (email, password) => {
 
-    if (authData && authData.admin.find((admin) => admin.email == email && admin.password == password)) {
-      localStorage.setItem('loggedInUser', JSON.stringify({ role: 'admin' }))
-      setUser('admin')
-    }
-    else if (authData && authData.employees.find((employee) => employee.email == email && employee.password == password)) {
-      localStorage.setItem('loggedInUser', JSON.stringify({ role: 'employee' }))
-      setUser('employee')
-    }
-    else {
-      alert('Wrong crediantials');
+    if(authData) {
+
+      const admin = authData.admin.find((admin) => admin.email == email && admin.password == password)
+      const employee = authData.employees.find((employee) => employee.email == email && employee.password == password)
+
+      if (admin) {
+
+        setUser('admin')
+        SetLoggedInUserData(admin)
+        localStorage.setItem('loggedInUser', JSON.stringify({role: 'admin', data: admin}))
+  
+      }
+
+      else if (employee) {
+        setUser('employee')
+        SetLoggedInUserData(employee)
+        localStorage.setItem('loggedInUser', JSON.stringify({ role: 'employee', data: employee }))
+
+      }
+
+      else {
+        alert("Wrong crediantials")
+      }
     }
   }
 
@@ -68,8 +83,8 @@ function App() {
 
         {
           !user ? <Login handleLogin={handleLogin} /> :
-            user == 'admin' ? <AdminDashboard /> :
-              user == 'employee' ? <EmployeeDashboard /> : null
+            user == 'admin' ? <AdminDashboard data={loggedInUserData} /> :
+              user == 'employee' ? <EmployeeDashboard data={loggedInUserData} /> : null
         }
 
 

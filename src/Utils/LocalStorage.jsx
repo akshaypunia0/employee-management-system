@@ -1,8 +1,15 @@
 const employees = [
     {
         "id": 1,
+        "name": "Rahul Sharma",
         "email": "rahul@example.com",
         "password": "123",
+        "taskNumbers": {
+            "active": 1,
+            "newTask": 1,
+            "completed": 0,
+            "failed": 0
+        },
         "tasks": [
             {
                 "taskTitle": "Fix UI Bug",
@@ -28,8 +35,15 @@ const employees = [
     },
     {
         "id": 2,
+        "name": "Priya Verma",
         "email": "priya@example.com",
         "password": "123",
+        "taskNumbers": {
+            "active": 1,
+            "newTask": 1,
+            "completed": 1,
+            "failed": 0
+        },
         "tasks": [
             {
                 "taskTitle": "Database Backup",
@@ -65,8 +79,15 @@ const employees = [
     },
     {
         "id": 3,
+        "name": "Aman Gupta",
         "email": "aman@example.com",
         "password": "123",
+        "taskNumbers": {
+            "active": 1,
+            "newTask": 1,
+            "completed": 1,
+            "failed": 0
+        },
         "tasks": [
             {
                 "taskTitle": "Write Blog",
@@ -102,8 +123,15 @@ const employees = [
     },
     {
         "id": 4,
+        "name": "Neha Singh",
         "email": "neha@example.com",
         "password": "123",
+        "taskNumbers": {
+            "active": 1,
+            "newTask": 0,
+            "completed": 1,
+            "failed": 0
+        },
         "tasks": [
             {
                 "taskTitle": "Testing API",
@@ -129,8 +157,15 @@ const employees = [
     },
     {
         "id": 5,
+        "name": "Vikas Malhotra",
         "email": "vikas@example.com",
         "password": "123",
+        "taskNumbers": {
+            "active": 1,
+            "newTask": 1,
+            "completed": 0,
+            "failed": 0
+        },
         "tasks": [
             {
                 "taskTitle": "Marketing Strategy",
@@ -151,17 +186,20 @@ const employees = [
                 "newTask": false,
                 "completed": false,
                 "failed": false
-            },
+            }
         ]
-    },
-]
+    }
+];
+
+
 
 
 const admin = [
     {
-        id: 1,
-        email: "admin@example.com",
-        password: "123"
+        "id": 1,
+        "name": "Akshay chaudhary",
+        "email": "admin@me.com",
+        "password": "123"
     },
 ]
 
