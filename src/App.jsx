@@ -13,7 +13,7 @@ function App() {
 
   const authData = useContext(AuthContext)
 
-  console.log(authData);
+  // console.log(authData);
 
   useEffect(() => {
 
