@@ -22,6 +22,13 @@ const Login = ({handleLogin}) => {
 
     return (
         <div className='flex items-center justify-center h-screen w-screen'>
+            <div>
+                For now: <br />
+                Login as user: rahul@example.com <br />
+                Login as admin: admin@me.com <br />
+
+                pass: 123 for both
+            </div>
             <div className='border-2 border-emerald-600 p-20 rounded-xl'>
                 <form 
                 className='flex flex-col gap-3 items-center justify-center'

@@ -58,6 +58,8 @@ const CreateTask = () => {
 
     addTask()
 
+    window.location.reload();
+
     resetTask()
 
   }
