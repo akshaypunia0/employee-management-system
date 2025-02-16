@@ -13,7 +13,7 @@ function App() {
 
   const authData = useContext(AuthContext)
 
-  // console.log(authData);
+  // console.log("ye hai",authData);
 
   useEffect(() => {
 
@@ -39,10 +39,10 @@ function App() {
 
   const handleLogin = (email, password) => {
 
-    if(authData) {
+    if(authData.userData) {
 
-      const admin = authData.admin.find((admin) => admin.email == email && admin.password == password)
-      const employee = authData.employees.find((employee) => employee.email == email && employee.password == password)
+      const admin = authData.userData.admin.find((admin) => admin.email == email && admin.password == password)
+      const employee = authData.userData.employees.find((employee) => employee.email == email && employee.password == password)
 
       if (admin) {
 

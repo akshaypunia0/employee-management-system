@@ -1,15 +1,15 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { AuthContext } from '../../Context/AuthProvider'
 
 const AllTask = () => {
 
     // const[data, setData] = useState(null)
 
-    // const employeesData = JSON.parse(localStorage.getItem('employees'))
+    const authData = useContext(AuthContext)   
 
-    const authData = useContext(AuthContext)
-
-    // console.log("Auth data",authData.employees);
+    const [employeesData, setEmployeesData] = useState(authData.employeesData)
+    // const [employeeTaskData, setEmployeeTaskData] = useState()
+    
 
 
     return (
@@ -25,7 +25,7 @@ const AllTask = () => {
 
             <div className='overflow-auto'>
             {
-                authData.employees.map((employee, id) => {
+                employeesData.map((employee, id) => {
                     return (
                         <div key={id} className='py-2 px-4 flex justify-between rounded mb-2 border-2 border-gray-800'>
                             <h2>{employee.name}</h2>
