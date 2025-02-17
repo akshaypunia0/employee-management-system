@@ -70,11 +70,11 @@ function App() {
   // handleLogin(email, password)
 
 
-  useEffect(() => {
-    setLocalStorage()
-    getLocalStorage()
+  // useEffect(() => {
+  //   setLocalStorage()
+  //   getLocalStorage()
 
-  },[])
+  // },[])
 
 
   return (

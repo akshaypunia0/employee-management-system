@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react'
-import { getLocalStorage } from '../Utils/LocalStorage';
+import { getLocalStorage, setLocalStorage } from '../Utils/LocalStorage';
 
 export const AuthContext = createContext();
 
@@ -14,6 +14,9 @@ const AuthProvider = ({ children }) => {
     setUserData({ employees, admin })
     setEmployeesData(employees)
 
+    console.log("Auhtprovider Usee effect me run hua");
+    
+
     // console.log('useEffect me', employees, admin);
     
 
@@ -22,13 +25,15 @@ const AuthProvider = ({ children }) => {
   const updateEmployee = () => {
 
     const updatedData = JSON.parse(localStorage.getItem('employees'))
+
+    console.log("Update employee function running");
+    
     setEmployeesData(updatedData)
 
   }
 
 
-
-  // console.log(userData);
+  // console.log(employeesData);
 
 
 

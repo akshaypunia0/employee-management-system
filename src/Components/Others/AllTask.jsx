@@ -9,7 +9,7 @@ const AllTask = () => {
 
     const [employeesData, setEmployeesData] = useState(authData.employeesData)
     // const [employeeTaskData, setEmployeeTaskData] = useState()
-    
+    // console.log(employeesData);
 
 
     return (
