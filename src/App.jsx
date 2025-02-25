@@ -77,13 +77,14 @@ function App() {
   // },[])
 
 
+
   return (
     <>
       <div>
 
         {
           !user ? <Login handleLogin={handleLogin} /> :
-            user == 'admin' ? <AdminDashboard data={loggedInUserData} /> :
+            user == 'admin' ? <AdminDashboard data={{loggedInUserData, SetLoggedInUserData}} /> :
               user == 'employee' ? <EmployeeDashboard data={loggedInUserData} /> : null
         }
 

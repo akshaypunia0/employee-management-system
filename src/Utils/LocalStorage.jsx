@@ -16,8 +16,8 @@ const employees = [
                 "taskDescription": "Resolve alignment issues in the login page",
                 "taskDate": "2025-02-12",
                 "category": "Development",
-                "active": true,
-                "newTask": false,
+                "active": false,
+                "newTask": true,
                 "completed": false,
                 "failed": false
             },
@@ -26,8 +26,8 @@ const employees = [
                 "taskDescription": "Create a weekly performance report",
                 "taskDate": "2025-02-13",
                 "category": "Management",
-                "active": false,
-                "newTask": true,
+                "active": true,
+                "newTask": false,
                 "completed": false,
                 "failed": false
             }

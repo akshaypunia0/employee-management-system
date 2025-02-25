@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 
-const Header = ({data}) => {
+const Header = (data) => {
+
+  console.log(data);
+  
 
   const [username, setUsername] = useState(data.name)
 
